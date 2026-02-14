@@ -1,0 +1,13 @@
+{
+    "login": "Login",
+    "logout": "Logout",
+    "search": "Search movie...",
+    "favorite": "Add to Favorite",
+    "remove_favorite": "Remove Favorite",
+    "welcome": "Welcome",
+    "movies": "Movies",
+    "language": "Language",
+    "login_success": "Login success!",
+    "logout_success": "Logout success!"
+  }
+  

@@ -1,0 +1,13 @@
+{
+    "login": "Masuk",
+    "logout": "Keluar",
+    "search": "Cari film...",
+    "favorite": "Tambah Favorit",
+    "remove_favorite": "Hapus Favorit",
+    "welcome": "Selamat datang",
+    "movies": "Film",
+    "language": "Bahasa",
+    "login_success": "Berhasil login!",
+    "logout_success": "Berhasil logout!"
+  }
+  
