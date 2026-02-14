@@ -5,7 +5,7 @@ return [
     'language' => 'Bahasa',
     'login' => 'Masuk',
     'logout' => 'Keluar',
-    'search_movie' => 'Cari-Film',
+    'search_movie' => '   Cari film favoritmu di sini.....',
     'favorite' => 'Film Favorit',
     'whislist' => 'Film Tercinta',
     'tambah_favorit' => 'Favoritkan',
@@ -19,5 +19,7 @@ return [
     'search' => ', Film yang anda cari tidak di temukan',
     'no_more_data' => 'Semua film telah ditampilkan / Data Tidak Ada.',
     'lang_changed' => 'Bahasa berhasil diubah ke Bahasa Indonesia!',
-    'warning' => 'Informasi'
+    'warning' => 'Informasi',
+    'loading' => 'Memuat film lainnya...',
+    'copyright' => 'Ariq Aqilla, Dibuat untuk keperluan pengujian teknis.'
 ];

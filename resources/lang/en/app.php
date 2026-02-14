@@ -5,7 +5,7 @@ return [
     'language' => 'Language',
     'login' => 'Login',
     'logout' => 'Logout',
-    'search_movie' => 'Search-Movies',
+    'search_movie' => '   Search for your favorite movies.....',
     'favorite' => 'Favorite Movie',
     'whislist' => 'My Whislist',
     'tambah_favorit' => 'Favorite',
@@ -19,5 +19,7 @@ return [
     'search' => ', The movie you are looking for was not found',
     'no_more_data' => 'All movies have been displayed / No Data Available.',
     'lang_changed' => 'Language successfully changed to English!',
-    'warning' => 'Information'
+    'warning' => 'Information',
+    'loading' => 'Discover more movies',
+    'copyright' => 'Ariq Aqilla, Built for Technical Test purposes.'
 ];

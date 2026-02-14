@@ -10,7 +10,7 @@
                 {{ $movie->Title }}
             </h6>
             <div class="mt-2 d-flex align-items-center justify-content-between">
-                <span class="text-muted small">{{ $movie->Year }}</span>
+                <span class="text-muted" style="white-space: nowrap; text-overflow: ellipsis; font-size: 0.73em;">{{ $movie->Year }}</span>
                 <a href="/movies/{{ $movie->imdbID }}" class="btn btn-detail-sm">
                     {{ __('app.view_details') }}
                 </a>

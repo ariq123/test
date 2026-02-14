@@ -2,7 +2,8 @@
 
 @section('content')
 <form action="/movies" method="GET" class="mb-5 d-flex justify-content-center">
-    <input class="form-control w-50 shadow-lg" type="text" name="search" value="{{ request('search') }}" placeholder="🔍{{ __('app.search_movie') }}" style="
+    <div class="col-11 col-md-6">
+        <input class="form-control shadow-lg" type="text" name="search" value="{{ request('search') }}" placeholder="🔎{{ __('app.search_movie') }}" style="
                     background: rgba(255, 255, 255, 0.1); 
                     backdrop-filter: blur(10px); 
                     border: 1px solid rgba(255, 255, 255, 0.2); 
@@ -11,7 +12,9 @@
                     padding: 12px 25px;
                     outline: none;
                ">
+    </div>
 </form>
+
 
 
 <div class="row" id="movie-container">
@@ -22,7 +25,7 @@
     <div class="spinner-border text-light" role="status">
         <span class="sr-only">Loading...</span>
     </div>
-    <p class="text-white mt-2 small">Memuat film lainnya...</p>
+    <p class="text-white mt-2 small">{{ __('app.loading') }}</p>
 </div>
 
 <div class="no-more-data text-center text-white mt-4" style="display:none;">

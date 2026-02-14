@@ -54,22 +54,40 @@ body::after {
 }
 
 
-/* --- 3. ANIMASI TOAST DARI BAWAH KANAN --- */
 .toast-container {
     position: fixed;
-    bottom: 30px; /* Posisi di bawah */
-    right: 30px;  /* Posisi di kanan */
-    z-index: 9999;
+    top: 50%;           /* Pindah ke tengah vertikal */
+    left: 50%;          /* Pindah ke tengah horizontal */
+    transform: translate(-50%, -50%); /* Geser balik agar benar-benar presisi di tengah */
+    z-index: 9999;      /* Pastikan di atas semua elemen */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none; /* Biar user tetap bisa klik elemen di belakang toast */
 }
-/* Override animasi bawaan Bootstrap jadi lebih mantul (bouncy) */
-.toast.custom-slide {
-    transform: translateY(100px);
-    opacity: 0;
-    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.5s ease;
-}
-.toast.custom-slide.show {
-    transform: translateY(0);
-    opacity: 1;
+
+.toast {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px); /* Efek glassmorphism sesuai tema kamu */
+    padding: 15px 30px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    transition: opacity 0.5s ease;
+    text-align: center;
+    min-width: 350px;
+    /* Menambah ruang di dalam kotak */
+    padding: 20px !important; 
+    
+    /* Memaksa teks/angka panjang untuk turun ke bawah jika mentok */
+    word-break: break-word; 
+    overflow-wrap: break-word;
+    
+    /* Agar teks tetap rapi di tengah */
+    text-align: center;
+    line-height: 1.5;
+    color: #ffffff;
 }
 
 @media (max-width: 991px) {
@@ -111,7 +129,6 @@ body::after {
     height: 100%;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
 }
 
 .movie-card:hover {
@@ -171,8 +188,8 @@ input.form-control {
 input.form-control:focus {
     /* Sedikit lebih gelap saat diklik agar teks mudah dibaca */
     background-color: rgba(0, 0, 0, 0.7) !important;
-    border-color: #E50914 !important;
-    box-shadow: 0 0 10px rgba(229, 9, 20, 0.3) !important; /* Glow halus warna merah */
+    border-color: #ebe1e1 !important;
+    box-shadow: 0 0 5px rgba(255, 0, 13, 0.3) !important; /* Glow halus warna merah */
     outline: none !important;
 }
 .btn {
@@ -197,20 +214,24 @@ input.form-control:focus {
         flex: 0 0 25%;
         max-width: 25%;
     }
+
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
+    input.form-control {
+        margin-top: 30px!important;
+    }   
     .col-md-4 {
         -ms-flex: 0 0 33.333333%;
         flex: 0 0 33.333333%;
         max-width: 33.333333%;
     }
-    input.form-control {
-        margin-bottom: 15px;
-    }
 }
 
 @media (max-width: 767px) {
+    input.form-control {
+        margin-top: 30px!important;
+    }   
     .btn-detail-sm {
         padding: 2px 8px !important;
         font-size: 0.6rem !important;
@@ -244,7 +265,7 @@ input.form-control:focus {
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: white !important;
     border-radius: 50px;
-    padding: 10px 25px;
+    padding: 5px 12.5px;
     font-weight: 600;
     transition: all 0.3s ease;
     display: inline-flex;
@@ -278,3 +299,4 @@ input.form-control:focus {
     border-color: #f5c518;
     color: #fff;
 }
+

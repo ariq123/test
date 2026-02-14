@@ -28,7 +28,7 @@
             transition: background-color 0.4s ease-in-out, backdrop-filter 0.4s ease-in-out, box-shadow 0.4s ease;
             border: 1px solid rgba(255, 255, 255, 0.3);
             /* Putih dengan opasitas 30% */
-            border-radius: 3px;
+            border-radius: 2px;
             /* Membuat sudut membulat agar lebih estetik */
             background-color: #343a40;
             /* Warna awal (bg-dark) */
@@ -60,7 +60,7 @@
         }
 
         .dropdown-item:hover {
-            background-color: #e50914;
+            background-color: black;
             color: #fff;
         }
 
@@ -71,7 +71,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top transition-navbar">
         <div class="container">
-            <a class="navbar-brand font-weight-bold" href="/movies">
+            <a class="navbar-brand font-weight-bold" style="font-size: 1.5em!important;" href="/movies">
                 🎬 {{ __('app.movies') }}
             </a>
 
@@ -83,23 +83,23 @@
                 <ul class="navbar-nav ml-auto align-items-center">
                     <li class="nav-item dropdown d-flex align-items-center">
                         <a class="nav-link dropdown-toggle btn-glass mr-3" href="#" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="height: fit-content;">
-                            <i class="fas fa-globe"></i> {{ __('app.language') }}
+                            <i class="fas fa-globe"></i>&nbsp;&nbsp;{{ __('app.language') }}
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="languageDropdown">
-                            <a class="dropdown-item" href="{{ route('change.language', ['locale' => 'en']) }}">🇺🇸 English</a>
-                            <a class="dropdown-item" href="{{ route('change.language', ['locale' => 'id']) }}">🇮🇩 Indonesia</a>
+                            <a class="dropdown-item d-flex justify-content-center" href="{{ route('change.language', ['locale' => 'en']) }}">🇺🇸 English</a>
+                            <a class="dropdown-item d-flex justify-content-center" href="{{ route('change.language', ['locale' => 'id']) }}">🇮🇩 Indonesia</a>
                         </div>
                     </li>
 
                     <li class="nav-item mr-2">
-                        <a href="/favorites" class="btn btn-warning btn-sm">
-                            <i class="fas fa-star"></i> {{ __('app.favorite') }}
+                        <a href="/favorites" class="btn btn-glass btn-glass-primary">
+                            <i class="fas fa-star"></i>&nbsp;{{ __('app.favorite') }}
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="/logout" class="btn btn-danger btn-sm">
-                            <i class="fas fa-sign-out-alt"></i> {{ __('app.logout') }}
+                        <a href="/logout" class="btn btn-glass btn-glass-danger">
+                            <i class="fas fa-sign-out-alt"></i>&nbsp;{{ __('app.logout') }}
                         </a>
                     </li>
                 </ul>
@@ -110,26 +110,29 @@
     <div class="container" style="margin-top: 100px; min-height: 80vh;">
         @yield('content')
     </div>
-
-    <div aria-live="polite" aria-atomic="true" class="toast-container">
+    <div aria-live="polite" aria-atomic="true" class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 11">
         @if(!empty($warningToast))
-        <div class="toast custom-slide border-warning shadow-lg" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">
-            <div class="toast-header bg-warning text-dark">
-                <strong class="mr-auto"><i class="fas fa-exclamation-circle"></i> {{ __('app.warning') }}</strong>
-                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+        <div class="toast custom-slide border-0 shadow-lg" role="alert" aria-live="assertive" aria-atomic="true" data-delay="4000">
+            <!-- Header: Hitam dengan teks putih -->
+            <div class="toast-header bg-dark text-white border-bottom border-secondary">
+                <strong class="mr-auto"><i class="fas fa-exclamation-circle text-warning"></i> {{ __('app.warning') }}</strong>
+                <button type="button" class="ml-2 mb-1 close text-white" data-dismiss="toast" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="toast-body bg-white text-dark font-weight-bold">
+            <!-- Body: Hitam dengan teks putih -->
+            <div class="toast-body bg-dark text-white font-weight-bold">
                 {{ $warningToast }}
             </div>
         </div>
         @endif
     </div>
 
-    <footer class="text-center py-4 text-muted small mt-5">
-        &copy; {{ date('Y') }} Movie App. All rights reserved.
+
+    <footer class="text-center py-4 mt-5" style="opacity: 0.5; font-size: clamp(0.75rem, 2vw, 1rem);">
+        &copy; {{ date('Y') }} {{ __('app.copyright') }}
     </footer>
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>

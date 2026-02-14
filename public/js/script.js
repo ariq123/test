@@ -39,9 +39,9 @@ function showToast(message, type) {
     if (typeof Swal !== 'undefined') {
         const Toast = Swal.mixin({
             toast: true,
-            position: 'bottom-end',
+            position: 'top-right',
             showConfirmButton: false,
-            timer: 4000,
+            timer: 3000,
             timerProgressBar: true,
             background: '#333',
             color: '#fff',

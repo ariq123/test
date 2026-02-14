@@ -20,7 +20,7 @@ Route::group(['middleware' => ['check.login', 'prevent.back', 'setlocale']], fun
 });
 
 Route::get('/change-language/{locale}', function ($locale) {
-    if (! in_array($locale, ['en','id'])) {
+    if (!in_array($locale, ['en','id'])) {
         abort(400);
     }
     session(['locale' => $locale]);

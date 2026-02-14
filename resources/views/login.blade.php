@@ -13,18 +13,37 @@
 
     <style>
         body {
+            /* KUNCI: Mencegah scroll ke bawah dan samping */
             height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            position: fixed;
+            /* Mencegah pergerakan layar saat keyboard HP muncul */
+
             display: flex;
             justify-content: center;
             align-items: center;
             margin: 0;
             background-color: #0a0a0a;
             color: white;
-            /* Background Statis (Bening) */
             background-image:
                 radial-gradient(circle at center, rgba(80, 80, 120, 0.15) 0%, transparent 70%),
                 url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
             background-size: cover;
+        }
+
+        /* Penyesuaian agar kartu login pas di mobile */
+        .card-wrapper {
+            display: flex;
+            justify-content: center;
+            /* Tengah horizontal */
+            align-items: center;
+            /* Tengah vertikal */
+            min-height: 100vh;
+            /* Pastikan tinggi pembungkus setinggi layar */
+            width: 100%;
+            padding: 20px;
+            /* Jarak aman agar card tidak nempel ke pinggir layar di HP */
         }
 
         .glass-card {
@@ -36,37 +55,46 @@
             padding: 40px 30px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             width: 100%;
+            max-width: 450px;
+            /* Batasi lebar maksimal agar tidak terlalu lebar di desktop */
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
-        .form-control {
-            background: rgba(0, 0, 0, 0.4) !important;
+        .form-controls {
+            background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1) !important;
             color: white !important;
             border-radius: 50px;
             padding: 25px 20px;
         }
 
-        .form-control:focus {
-            background: rgba(0, 0, 0, 0.6) !important;
-            border-color: #E50914 !important;
-            box-shadow: 0 0 10px rgba(229, 9, 20, 0.4) !important;
-        }
-
+        /* Tambahkan transisi halus agar responsif */
         .btn-login {
-            background: #E50914;
-            border: none;
+            background: rgba(255, 255, 255, 0.05);
             color: white;
             border-radius: 50px;
             padding: 12px;
             font-weight: bold;
             text-transform: uppercase;
             transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .btn-login:hover {
-            background: #f40612;
-            transform: translateY(-2px);
+        /* CSS tambahan untuk tombol login agar teks di tengah */
+        .btn-block-custom {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #E50914;
+            border: none;
+            border-radius: 50px;
             color: white;
+            font-weight: bold;
         }
 
     </style>
@@ -95,7 +123,7 @@
                             <input type="password" class="form-control" name="password" placeholder="Password" required>
                         </div>
 
-                        <button class="btn btn-login btn-block mb-3">
+                        <button class="btn-login btn-block mb-3 text-align-center p-4" style="padding: 0!important;">
                             Login
                         </button>
 
