@@ -29,7 +29,7 @@ class MovieController extends Controller
     $toastMessage = null; 
 
     try {
-        $response = $client->get('http://www.omdbapi.com/', [
+        $response = $client->get('https://www.omdbapi.com/', [
             'query' => [
                 'apikey' => env('OMDB_KEY'),
                 's' => $search,
